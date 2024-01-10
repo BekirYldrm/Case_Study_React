@@ -5,9 +5,9 @@ function Form () {
     return (
         <div>
             <form action="">
-                <Input name="latInput" />
-                <Input name="longInput" />
-                <Input name="radInput" />
+                <Input name="latInput" label="Latitude" />
+                <Input name="longInput" label="Longitude"/>
+                <Input name="radInput" label="Radius" />
                 <button type="submit">Search on Map</button>
                 
             </form>
