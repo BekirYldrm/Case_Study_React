@@ -1,12 +1,16 @@
 import React from "react";
 
-function Input(props){
+function Input(props) {
+
+    
+
     return (
         <div>
             <label htmlFor={props.name}>{props.label}</label>
-            <input type="text" name={props.name} />
+            <input type="number" name={props.name}  />
         </div>
-        )
+    )
 
 }
 export default Input;
+
