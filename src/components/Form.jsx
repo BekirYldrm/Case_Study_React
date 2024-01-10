@@ -6,13 +6,13 @@ function Form(props) {
 
     return (
         <div>
-            <form onSubmit={props.handleSumbit}>
+            <form onSubmit= { props.handleSumbit}>
 
-                <Input name="latInput" label="Latitude" />
+                <Input name="latInput" label="Latitude" id="latId" />
 
-                <Input name="longInput" label="Longitude" />
+                <Input name="longInput" label="Longitude" id="longId"/>
 
-                <Input name="radInput" label="Radius" />
+                <Input name="radInput" label="Radius" id="radId" />
 
                 <button type="submit">Search on Map</button>
 
