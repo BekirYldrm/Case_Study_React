@@ -6,6 +6,7 @@ import Card from "./Card";
 function App() {
   const [results, setResults] = useState([]);
 
+
   function Sumbitted(event) {
     const latValue = event.target.latInput.value;
     const longValue = event.target.longInput.value;
@@ -13,7 +14,7 @@ function App() {
 
     async function backendRequest(lat, long, rad) {
       const response = await Axios.get(
-        `http://localhost:8070/placesNearby?lat=${lat}&long=${long}&rad=${rad}`
+        `https://server-nodejs-h4h0.onrender.com/placesNearby?lat=${lat}&long=${long}&rad=${rad}`
       );
 
       setResults(response.data);

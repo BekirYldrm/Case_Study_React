@@ -1,7 +1,9 @@
 /* eslint-disable jsx-a11y/alt-text */
 
-import React from "react";
+import React  from "react";
 import { Rating, Card, CardContent } from "@mui/material";
+
+const apikey = import.meta
 
 function CardComponent(props) {
   return (
@@ -10,7 +12,7 @@ function CardComponent(props) {
       <CardContent>
         {props.photoReference ? (
           <img
-            src={`https://maps.googleapis.com/maps/api/place/photo?photoreference=${props.photoReference}&maxwidth=600&key=AIzaSyCEOfwHqWSA-zNz7EEl7RtpH_OkfyGVK8c`}
+            src={`https://maps.googleapis.com/maps/api/place/photo?photoreference=${props.photoReference}&maxwidth=600&key=${process.env.REACT_APP_MY_KEY}`}
             height={300}
             width={300}
           ></img>
