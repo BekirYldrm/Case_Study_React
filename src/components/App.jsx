@@ -36,6 +36,7 @@ function App() {
         photoReference={result?.photos && result?.photos[0].photo_reference}
         photoHeight={result?.photos && result?.photos[0].height}
         photoWidth={result?.photos && result?.photos[0].width}
+        
       />
     );
   }
