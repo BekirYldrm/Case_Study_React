@@ -1,0 +1,38 @@
+body {
+  background-color: rgb(255, 237, 237);
+}
+
+.form {
+  background-color: rgb(248, 250, 225);
+  padding: 1%;
+  margin-left: 15px;
+  font-size: larger;
+  font-family: "Times New Roman", Times, serif;
+}
+
+.card {
+  align-items: center !important;
+  width: 400px !important;
+  height: 500px !important;
+  padding-left: 10px !important;
+  margin: 10px !important;
+  background-color: rgb(233, 223, 223) !important;
+  border-radius: 10px !important;
+}
+
+.card:hover {
+  background-color: rgb(175, 183, 183) !important;
+}
+
+.button {
+  margin-right: 100px;
+  border-radius: 100px;
+}
+
+.label {
+  margin-right: 3%;
+}
+
+.input {
+  border-radius: 100px;
+}

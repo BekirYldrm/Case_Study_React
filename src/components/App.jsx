@@ -1,37 +1,50 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Form from "./Form";
 import Axios from "axios";
+import Card from "./Card";
 
 function App() {
-    const [backendData, setBackendData] = useState([]);
+  const [results, setResults] = useState([]);
 
+  function Sumbitted(event) {
+    const latValue = event.target.latInput.value;
+    const longValue = event.target.longInput.value;
+    const radValue = event.target.radInput.value;
 
-    function Sumbittted(event) {
+    async function backendRequest(lat, long, rad) {
+      const response = await Axios.get(
+        `http://localhost:8070/placesNearby?lat=${lat}&long=${long}&rad=${rad}`
+      );
 
-        const latValue = event.target.latInput.value;
-        const longValue = event.target.longInput.value;
-        const radValue = event.target.radInput.value;
-
-        console.log(latValue , longValue, radValue);
-
-        async function backendRequest(lat, long, rad) {
-            const response = await Axios.get(`http://localhost:8070/placesNearby?lat=${lat}&long=${long}&rad=${rad}`);
-            
-            setBackendData(response.data)
-        }
-
-            backendRequest(latValue, longValue, radValue);
-
-            event.preventDefault();
-   
-
+      setResults(response.data);
     }
 
-    return (
-        <div>
-            <Form handleSumbit={Sumbittted} />
-        </div>
-    )
+    backendRequest(latValue, longValue, radValue);
 
+    event.preventDefault();
+  }
+
+  function createCard(result) {
+    console.log(result?.photos); // photostan dönenlere baktım html attributonsda link var haritayı açıyor
+
+    return (
+      <Card
+        name={result?.name}
+        vicinity={result?.vicinity}
+        rating={result?.rating}
+        userRatingsTotal={result?.user_ratings_total}
+        photoReference={result?.photos && result?.photos[0].photo_reference}
+        photoHeight={result?.photos && result?.photos[0].height}
+        photoWidth={result?.photos && result?.photos[0].width}
+      />
+    );
+  }
+
+  return (
+    <div className="row">
+      <Form handleSumbit={Sumbitted} />
+      {results.map(createCard)}
+    </div>
+  );
 }
 export default App;
